@@ -15,6 +15,7 @@ module i2s_transmitter
     //output logic [4:0] testing_bit_counter
 );
 
+    logic [3:0]  bit_clock_timer;    // divides 24.576 MHz MHz clock by 16 = 1.536 MHz
     logic [4:0]  bit_counter;        // keeps track of where we are in the I2S transmission loop
     logic [15:0] sound_bits;         // holds the sound sample that is currently being transmitted
     logic [15:0] banked_sound_bits;  // holds the sound sample we get from nco
@@ -22,6 +23,20 @@ module i2s_transmitter
     //assign testing_bit_counter = bit_counter;
 
     always_ff @(posedge clk or negedge rst) begin
+        if (!rst) begin
+            bit_clock_timer <= 0;
+            bit_clock <= 0;
+        end 
+        else begin
+            // Increment timer
+            bit_clock_timer <= bit_clock_timer + 1;
+            
+            // Toggle clocks when timer rolls over
+            if (bit_clock_timer == 0) bit_clock <= ~bit_clock; 
+        end
+    end
+
+    always_ff @(posedge bit_clock or negedge rst) begin
         if (!rst) begin
             bit_counter <= 31; // goes to 31, for 32 bits total, 16 bits each for left and right channels (right is silent in our case)
             sound_data  <= 0;
@@ -31,6 +46,7 @@ module i2s_transmitter
             test_LED_B  <= 1;
         end
         else if (bit_clk_en) begin
+
             // incrementation –> because register is 0-31 (2^5), which is what we want, we let roll-over reset it to zero
             bit_counter <= bit_counter + 1;
 
