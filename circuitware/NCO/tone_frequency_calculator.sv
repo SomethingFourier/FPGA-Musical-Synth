@@ -27,7 +27,7 @@ module tone_frequency_calculator
     reg [15:0] next_nco_increment_value;
 
     always_comb begin
-        if (!rst) mute = 1; 
+        if (!rst) nco_mute = 1; 
 
         next_nco_increment_value = 0;
         test_LED_R = 1;
@@ -49,9 +49,9 @@ module tone_frequency_calculator
         nco_increment_value = next_nco_increment_value;
         if (nco_increment_value > 0) begin
             test_LED_R = 0;
-            mute = 0;
+            nco_mute = 0;
         end
-        else mute = 1;
+        else nco_mute = 1;
     end
 
 endmodule
