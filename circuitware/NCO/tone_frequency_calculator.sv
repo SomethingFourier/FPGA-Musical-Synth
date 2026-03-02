@@ -23,7 +23,7 @@ module tone_frequency_calculator
     output logic test_LED_R
 );
 
-    reg [15:0] next_nco_increment_value;
+    reg [31:0] next_nco_increment_value;
 
     always_comb begin
         if (!rst) nco_mute = 1; 

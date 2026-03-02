@@ -15,7 +15,7 @@ module i2s_transmitter
     //output logic [4:0] testing_bit_counter
 );
 
-    logic [3:0]  bit_clock_timer;    // divides 24.576 MHz MHz clock by 16 = 1.536 MHz
+    logic [1:0]  bit_clock_timer;    // divides 24.576 MHz MHz clock by 16 = 1.536 MHz
     logic [4:0]  bit_counter;        // keeps track of where we are in the I2S transmission loop
     logic [15:0] sound_bits;         // holds the sound sample that is currently being transmitted
     logic [15:0] banked_sound_bits;  // holds the sound sample we get from nco
