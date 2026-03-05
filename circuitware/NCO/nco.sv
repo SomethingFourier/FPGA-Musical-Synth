@@ -102,7 +102,9 @@ module nco
             end 
             else if (multiply) begin
                 // This is where we'll need to implement Booth's algorithm.
-                sample_li_offset <= (($signed({16'h0, accumulator_value[26:0]}) * (slope >>> 2)) >>> 27); // This will be replaced with booth's algorithm in the future
+                // Need to multiply 27 bit fractional part of the accumulator value by the 16 bit slope. We then need to shift it right.
+                // To get system verilog to return all the bits, we need to pad 16 bits to the first value
+                sample_li_offset <= (($signed({16'h0, accumulator_value[26:0]}) * slope) >>> 29); // This will be replaced with booth's algorithm in the future
                 multiply <= 0; // Run this after we've finished multiplying
                 add <= 1; // Tell the state machine that it's now time to add the sample from the waveform_rom and the linear interpolation offset from the multiplication to get the total sample.
             end 
