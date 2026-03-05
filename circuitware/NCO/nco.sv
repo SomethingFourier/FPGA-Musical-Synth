@@ -50,7 +50,13 @@ module nco
         $readmemh("waveform_slope_rom.mem", waveform_slope_rom);
     end
 
-
+    // Booth's algorithm cycle counter
+    reg [3:0] booth_cycle_counter; // max value should be 0b1101
+    reg [56:0] booth_A;
+    reg [56:0] booth_S;
+    reg [56:0] booth_P;
+    reg [56:0] booth_pos_2A;
+    reg [56:0] booth_neg_2A;
 
     // Linear interpolation stuff
     logic signed [15:0] sample;
@@ -76,6 +82,12 @@ module nco
             read_roms <= 0;
             multiply <= 0;
             add <= 0;
+            booth_cycle_counter <= 0;
+            booth_A <= 0;
+            booth_S <= 0;
+            booth_P <= 0;
+            booth_pos_2A <= 0;
+            booth_neg_2A <= 0;
         end
         else if (nco_mute) begin
             // Reset things to zero
@@ -87,6 +99,12 @@ module nco
             read_roms <= 0;
             multiply <= 0;
             add <= 0;
+            booth_cycle_counter <= 0;
+            booth_A <= 0;
+            booth_S <= 0;
+            booth_P <= 0;
+            booth_pos_2A <= 0;
+            booth_neg_2A <= 0;
         end
         else begin
             if (sample_flag) begin // The sample flag is brought high whenever the 48kHz clock hits a rising edge.
@@ -104,9 +122,34 @@ module nco
                 // This is where we'll need to implement Booth's algorithm.
                 // Need to multiply 27 bit fractional part of the accumulator value by the 16 bit slope. We then need to shift it right.
                 // To get system verilog to return all the bits, we need to pad 16 bits to the first value
-                sample_li_offset <= (($signed({16'h0, accumulator_value[26:0]}) * slope) >>> 29); // This will be replaced with booth's algorithm in the future
-                multiply <= 0; // Run this after we've finished multiplying
-                add <= 1; // Tell the state machine that it's now time to add the sample from the waveform_rom and the linear interpolation offset from the multiplication to get the total sample.
+                // sample_li_offset <= (($signed({16'h0, accumulator_value[26:0]}) * slope) >>> 29); // This will be replaced with booth's algorithm in the future
+                
+                if (!booth_cycle_counter) begin
+                    booth_A <= $signed({1'b0, accumulator_value[26:0]}) << 29;
+                end
+                else if (booth_cycle_counter == 1) begin
+                    booth_S <= 0 - booth_A;
+                    booth_P <= slope << 1;
+                    booth_pos_2A <= booth_A << 1;
+                    booth_neg_2A <= (0 - booth_A) << 1;
+                end
+                else begin
+                    case (booth_P[2:0])
+                        1:  booth_P <= (booth_P + booth_A) >>> 2;
+                        2:  booth_P <= (booth_P + booth_A) >>> 2;
+                        3:  booth_P <= (booth_P + booth_pos_2A) >>> 2;
+                        4:  booth_P <= (booth_P + booth_neg_2A) >>> 2;
+                        5:  booth_P <= (booth_P + booth_S) >>> 2;
+                        6:  booth_P <= (booth_P + booth_S) >>> 2;
+                    endcase
+                end
+                
+                if (booth_cycle_counter == 15) begin
+                    sample_li_offset <= booth_P >>> 30; // 1 + 29 => because of booth's algorithm and because of the zero padding that we did on line 128
+                    multiply <= 0; // Run this after we've finished multiplying
+                    add <= 1; // Tell the state machine that it's now time to add the sample from the waveform_rom and the linear interpolation offset from the multiplication to get the total sample.
+                end
+                booth_cycle_counter <= booth_cycle_counter + 1;
             end 
             else if (add) begin
                 sample_output <= sample + sample_li_offset; // Add the sample from the waveform_rom and the linear interpolation offset from the multiplication to calculate the total linearly interpolated sample.
