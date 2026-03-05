@@ -119,39 +119,66 @@ module nco
                 multiply <= 1; // At this point we're ready to do the multiplication before we add it back to the sample
             end 
             else if (multiply) begin
-                // This is where we'll need to implement Booth's algorithm.
-                // Need to multiply 27 bit fractional part of the accumulator value by the 16 bit slope. We then need to shift it right.
+                /*
+                This is where we perform multiplication using Booth's Multiplication Algorithm Radix 4.
+                Need to multiply 27 bit fractional part of the accumulator value by the 16 bit slope. We then need to shift it right so that our answer is back in the 5.27 fixed point format.
+                */
+
+                // This is an implementation of multiplication without Booth's algorithm using System Verilog's multiplication (*) (Using entirely combinational logic once synthesized)
                 // To get system verilog to return all the bits, we need to pad 16 bits to the first value
-                // sample_li_offset <= (($signed({16'h0, accumulator_value[26:0]}) * slope) >>> 29); // This will be replaced with booth's algorithm in the future
-                
-                if (!booth_cycle_counter) begin
+                // sample_li_offset <= (($signed({16'h0, accumulator_value[26:0]}) * slope) >>> 29); // This was used for testing the NCO before we implemented Booth's Algorithm
+
+                /*
+                Booth's algorithm (radix 4) takes 14 cycles to complete. We can complete each cycle in one clock cycle, but we also need to initialize some registers with values first.
+                Doing this adds 2 cycles to our loop.
+
+                In our implementation, the multiplicand (m) is the fractional part of the accumulator_value register (27 bits). The multiplier (r) is the slope register.
+                Because Booth's algorithm radix 4 requires N/2 cycles where N is the number of bits of the largest value we're multiplying, we need an even value of N so that our number
+                of cycles does not become a fraction. To do this, we pad m to be 28 bits. We don't need to worry about sign extending because the accumulator_value is not signed and will never be
+                a negative number. Padding by this extra zero also prevents Booth's algorithm from thinking that it is a negative value when it is actually a large positive value.
+
+                In the first cycle, we initialize the booth_A register with the m shifted left by 28 bits + a dummy bit. We have to do this first because the following cycle depends on A, and we can't
+                have parallel processes depending on eachother's result.
+
+                In the second cycle, we initialize the booth_S register to be the two's complement inverse of booth_A by subtracting booth_A from 0. We then initialize booth_P to be the slope, sign extended
+                to fill 28 bits, then padded with another 28 zeroes before being shifted left one bit for the dummy bit. We then initialize booth_pos_2A to be booth_A multiplied by 2 (shifted left one) and
+                booth_neg_2A to be booth_P mulitplied by 2 (shifted left one). Remember that we can't have parallel processes depending on one another's result, so we have to perform the two's complement inverse
+                of booth_A here as well so that it does not depend on the value in the booth_P register.
+                */
+
+                if (!booth_cycle_counter) begin // First cycle
                     booth_A <= $signed({1'b0, accumulator_value[26:0]}) << 29; // Sign extend 1 bit (total 28 bits), then shift 28 + 1 dummy bit
-                    booth_cycle_counter <= booth_cycle_counter + 1;
+                    booth_cycle_counter <= booth_cycle_counter + 1; // Go to the next cycle on the next clock cycle
                 end
-                else if (booth_cycle_counter == 1) begin
-                    booth_S <= 0 - booth_A;
-                    booth_P <= {28'b0, 28'(signed'(slope))} << 1; // Convert signed 16bit to signed 28 bit, then pad with another 28 zeroes
-                    booth_pos_2A <= booth_A << 1;
-                    booth_neg_2A <= (0- booth_A) << 1;
-                    booth_cycle_counter <= booth_cycle_counter + 1;
+                else if (booth_cycle_counter == 1) begin // Second cycle
+                    booth_S <= 0 - booth_A; // booth_S = -booth_A, but we don't want to perform the multiplication by -1 as that would defeat the purpose of creating Booth's algorithm.
+                    booth_P <= {28'b0, 28'(signed'(slope))} << 1; // Convert signed 16bit to signed 28 bit, then pad with another 28 zeroes before shifting left by one to include the dummy bit.
+                    booth_pos_2A <= booth_A << 1; // Multiply booth_A by 2 by shifting it left 1 bit.
+                    booth_neg_2A <= (0 - booth_A) << 1; // Multiply booth_S by 2 by shifting it left 1 bit. We have to substitute what we put in booth_S into this assignment, otherwise we would have a process depending on another parallel process.
+                    booth_cycle_counter <= booth_cycle_counter + 1; // Go to the next cycle on the next clock cycle
                 end
-                else if (booth_cycle_counter <= 15) begin
-                    case (booth_P[2:0])
-                        3'b000:  booth_P <= booth_P >>> 2;
-                        3'b001:  booth_P <= (booth_P + booth_A) >>> 2;
-                        3'b010:  booth_P <= (booth_P + booth_A) >>> 2;
-                        3'b011:  booth_P <= (booth_P + booth_pos_2A) >>> 2;
-                        3'b100:  booth_P <= (booth_P + booth_neg_2A) >>> 2;
-                        3'b101:  booth_P <= (booth_P + booth_S) >>> 2;
-                        3'b110:  booth_P <= (booth_P + booth_S) >>> 2;
-                        3'b111:  booth_P <= booth_P >>> 2;
+                else if (booth_cycle_counter <= 15) begin // Cycles 3-16 (when booth_cycle_counter is 2 through 15)
+                    /*
+                    This is the core of booth's algorithm, the radix table and operations. Now that we have initialized the registers, we can start cycling through Booth's algorithm.
+                    We start by looking at the 3 least significant bits of booth_P. Depending on the 3 bit value, we perform one of the operations. We then shift the value in booth_P right by 2 bits,
+                    making sure we are sign extending (arithmetic shift right >>>).
+                    */
+                    case (booth_P[2:0]) // Look at three least significant bits of booth_P.
+                        3'b000:  booth_P <= booth_P >>> 2; // If these bits are 0b000, we do nothing, then shift.
+                        3'b001:  booth_P <= (booth_P + booth_A) >>> 2; // If these bits are 0b001, we perform P+A, then shift.
+                        3'b010:  booth_P <= (booth_P + booth_A) >>> 2; // If these bits are 0b010, we perform P+A, then shift.
+                        3'b011:  booth_P <= (booth_P + booth_pos_2A) >>> 2; // If these bits are 0b011, we perform P+2A, then shift.
+                        3'b100:  booth_P <= (booth_P + booth_neg_2A) >>> 2; // If these bits are 0b100, we perform P+(-2A), then shift.
+                        3'b101:  booth_P <= (booth_P + booth_S) >>> 2; // If these bits are 0b101, we perform P+S, then shift.
+                        3'b110:  booth_P <= (booth_P + booth_S) >>> 2; // If these bits are 0b110, we perform P+S, then shift.
+                        3'b111:  booth_P <= booth_P >>> 2; // If these bits are 0b111, we do nothing, then shift.
                     endcase
-                    booth_cycle_counter <= booth_cycle_counter + 1;
-                end else begin
-                    booth_cycle_counter <= 0;
+                    booth_cycle_counter <= booth_cycle_counter + 1; // Go to the next cycle on the next clock cyle
+                end else begin // We're done with our multiplication now, we can save our value and move on.
+                    booth_cycle_counter <= 0; // Reset the cycle counter back to zero
                     sample_li_offset <= booth_P >>> 30; // 1 + 27 + 2 => because of booths algorithm dummy bit, fractional quality of the accumulator value, and divide by 4 because the slope rom has been pre-multiplied by 4.
                     multiply <= 0; // Run this after we've finished multiplying
-                    add <= 1; // Tell the state machine that it's now time to add the sample from the waveform_rom and the linear interpolation offset from the multiplication to get the total sample.
+                    add <= 1; // Tell the state machine that it's now time to add the sample from the waveform_rom and the linear interpolation offset (sample_li_offset) from the multiplication to get the total sample.
                 end
             end 
             else if (add) begin
