@@ -13,6 +13,7 @@ set_io bouncy_key9      21
 set_io bouncy_key10     26
 set_io bouncy_key11     20
 set_io bouncy_key12     6
+set_io bouncy_key13     31
 
 set_io i2s_bclk         2
 set_io i2s_ws           45

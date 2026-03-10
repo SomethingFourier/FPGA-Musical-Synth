@@ -149,6 +149,14 @@ module synth
         .clean_signal(debounced_key12)
     );
 
+    debouncer key13_debounce
+    (
+        .clk(master_clock),
+        .rst(reset),
+        .raw_signal(bouncy_key13),
+        .clean_signal(debounced_key13)
+    );
+
     tone_frequency_calculator key_input
     (
         .clk(master_clock),
@@ -165,6 +173,7 @@ module synth
         .key10(debounced_key10),
         .key11(debounced_key11),
         .key12(debounced_key12),
+        .key13(debounced_key13),
         .nco_increment_value(nco_increment_value),
         .nco_mute(nco_mute),
         .test_LED_R(LED_RED)

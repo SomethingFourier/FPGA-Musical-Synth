@@ -26,7 +26,7 @@ plt.scatter(range(32), waveform_slope_rom, color='red', label='slope')
 
 plt.legend()
 
-#plt.show()
+plt.show()
 
 print(waveform_rom)
 
