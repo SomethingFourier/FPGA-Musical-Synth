@@ -22,7 +22,7 @@ for i in range(32):
         waveform_slope_rom.append((waveform_rom[i+1]-waveform_rom[i])*4)
 
 plt.scatter(range(32), waveform_rom, color='blue', label='waveform')
-plt.scatter(range(32), waveform_slope_rom, color='red', label='slope')
+plt.scatter(range(32), waveform_slope_rom, color='red', label='slope*4')
 
 plt.legend()
 
