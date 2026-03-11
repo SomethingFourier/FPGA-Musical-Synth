@@ -2,18 +2,18 @@ set_io master_clock     35
 set_io reset            25
 
 set_io bouncy_key1      28
-set_io bouncy_key2      32  
+set_io bouncy_key2      32
 set_io bouncy_key3      36
 set_io bouncy_key4      42
-set_io bouncy_key5      19  
+set_io bouncy_key5      19
 set_io bouncy_key6      11
 set_io bouncy_key7      18
 set_io bouncy_key8      23
 set_io bouncy_key9      21
 set_io bouncy_key10     26
 set_io bouncy_key11     20
-set_io bouncy_key12     6
-set_io bouncy_key13     31
+set_io bouncy_key12     6 
+set_io bouncy_key13     44 
 
 set_io i2s_bclk         2
 set_io i2s_ws           45
