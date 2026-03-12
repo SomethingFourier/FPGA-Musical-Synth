@@ -6,7 +6,7 @@ PERIODIC = True
 waveform_rom = []
 
 for i in range(32):
-    waveform_rom.append(math.sin(2*math.pi*i/32)*(2**15-1))
+    waveform_rom.append(0.5*math.sin(2*math.pi*i/32)*(2**15-1))
 
 waveform_slope_rom = []
 

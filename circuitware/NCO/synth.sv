@@ -15,6 +15,7 @@ module synth
     input logic bouncy_key10,
     input logic bouncy_key11,
     input logic bouncy_key12,
+    input logic bouncy_key13,
 
     output logic i2s_bclk,
     output logic i2s_ws,
@@ -39,6 +40,7 @@ module synth
     logic debounced_key10;
     logic debounced_key11;
     logic debounced_key12;
+    logic debounced_key13;
 
     reg [31:0] nco_increment_value;
     logic nco_mute;
