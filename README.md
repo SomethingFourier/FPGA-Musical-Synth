@@ -4,7 +4,7 @@ A musical synthesizer based on the iCE40 FPGA that outputs I2S audio.
 Video demonstration of sine wave synth: https://youtu.be/_ejQGvuSiI8
 
 ### Status: NCO synthesis now works!
-The synth now makes sine waves by the Numerically-Controlled Oscillator (NCO)! This opens the door to make any kind of wave we want just by updating the ROMs. Work is now beginning on developing a multiplication algorithm for use here, and after that, work will begin on:
+The synth now makes sine waves by the Numerically-Controlled Oscillator (NCO)! This opens the door to make any kind of wave we want just by updating the ROMs. Additionally, a multi-clock cycle multiplication algorithm has been implemented to save space on the FPGA and take advantage of the 512 master clock cycles between one sample and the next.
 ##### 1. Supporting more keys:
 > The hardware implementation for this is actively being developed using shift registers in a Parallel In Serial Out (PISO) setup to allow for sequential reading of each key on a fast clock cycle while using much fewer FPGA pins than even the current design with only 13 key support.
 ##### 2. Multiple Key Press Support:
