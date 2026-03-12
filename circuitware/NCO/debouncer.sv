@@ -7,7 +7,7 @@ module debouncer
 );
 
     // Parameter for the debounce delay.
-    parameter DEBOUNCE_THRESHOLD = 150000; // 150,000 cycles / 12.288 MHz = 12.2 ms
+    parameter DEBOUNCE_THRESHOLD = 150000; // 150,000 cycles / 24.576 MHz = 6.1 ms
 
     // FOR SIMULATION ONLY
     //parameter DEBOUNCE_THRESHOLD = 10; // 150,000 cycles / 12.288 MHz = 12.2 ms
