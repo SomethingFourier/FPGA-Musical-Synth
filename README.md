@@ -13,14 +13,16 @@ The synth now makes sine waves by the Numerically-Controlled Oscillator (NCO)! T
 > An amplitude envolope would greatly improve the articulation of the synth sound and make things more dynamic.
 ##### 4. A PCB for it all
 > The first iteration will likely interface with the development board (potentially the first few). However, the final iteration should be independent of a development board.
+<br>
+<br>
 
-#### The previous build: (square wave synthesis)
+### The previous build: (square wave synthesis)
 Video demonstration of square wave synth: https://youtu.be/o0nXdgJRZlI
 
 The wave_period_selector method of synthesis used is described by this process:
 > wave_period_selector sends the half-period of the frequency (musical note) associated with the key pressed to i2s_transmitter. i2s_transmitter sends a square wave via I2S that oscillates every half-period (the one sent to it by wave_period_selector) to an I2S DAC. This generates a square wave at the desired frequency.
 
-The square wavv synth only supports one key press at a time. If multiple keys are pressed, the key that gets checked first in wave_period_selector is the note that gets played. Further, due to the nature of this synthesis, this only supports square waves.
+The square wave synth only supports one key press at a time. If multiple keys are pressed, the key that gets checked first in wave_period_selector is the note that gets played. Further, due to the nature of this synthesis, this only supports square waves.
 
 ### Hardware being used:
 1. pico2-ice development board
