@@ -1589,6 +1589,89 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole without connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Switch:SW_Push"
 			(pin_numbers
 				(hide yes)
@@ -2175,7 +2258,7 @@
 	)
 	(text "Key Input Shift Registers"
 		(exclude_from_sim no)
-		(at 72.898 66.294 0)
+		(at 80.772 66.294 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -2242,6 +2325,18 @@
 			)
 		)
 		(uuid "e38b439e-74fb-45bc-9e10-ae6c422daa8c")
+	)
+	(text "Screw/Mounting Holes"
+		(exclude_from_sim no)
+		(at 172.974 71.882 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(thickness 0.508)
+				(bold yes)
+			)
+		)
+		(uuid "e65f9425-a70c-4dd9-ab15-aea53e303a89")
 	)
 	(junction
 		(at 127 45.72)
@@ -2352,7 +2447,7 @@
 		(uuid "727047c5-bfd7-4e21-abfa-4846c4add20a")
 	)
 	(junction
-		(at 97.79 91.44)
+		(at 55.88 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "767e801e-0000-4517-b6cc-b4100789dbda")
@@ -2496,7 +2591,7 @@
 		(uuid "f8d3c061-e1f9-44f1-8438-a32b0e7dfad9")
 	)
 	(junction
-		(at 54.61 91.44)
+		(at 99.06 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f8d6f521-7007-4728-9c40-fc1fc44a2369")
@@ -2508,11 +2603,11 @@
 		(uuid "f9481311-bee7-406d-b383-068dc9286bb4")
 	)
 	(no_connect
-		(at 68.58 91.44)
+		(at 85.09 91.44)
 		(uuid "715f48ff-4027-4f0e-b125-eccdac168bcb")
 	)
 	(no_connect
-		(at 111.76 91.44)
+		(at 41.91 91.44)
 		(uuid "a043713d-48dc-440b-bc32-a4634038242f")
 	)
 	(wire
@@ -2787,7 +2882,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 102.87) (xy 77.47 102.87)
+			(xy 77.47 102.87) (xy 76.2 102.87)
 		)
 		(stroke
 			(width 0)
@@ -2817,7 +2912,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 91.44) (xy 54.61 91.44)
+			(xy 104.14 91.44) (xy 99.06 91.44)
 		)
 		(stroke
 			(width 0)
@@ -3297,7 +3392,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 91.44) (xy 97.79 91.44)
+			(xy 60.96 91.44) (xy 55.88 91.44)
 		)
 		(stroke
 			(width 0)
@@ -3345,7 +3440,7 @@
 		)
 		(uuid "fbb8fb91-4b84-45b5-9c4d-91ca607c52d6")
 	)
-	(global_label "Modular Input 4"
+	(global_label "Modular Input 1"
 		(shape input)
 		(at 245.11 153.67 180)
 		(fields_autoplaced yes)
@@ -3391,7 +3486,7 @@
 	)
 	(global_label "Shift Reg Clock"
 		(shape input)
-		(at 88.9 91.44 90)
+		(at 64.77 91.44 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3401,7 +3496,7 @@
 		)
 		(uuid "21092997-170f-4249-b74c-2d638f40e7f8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 88.9 73.3964 90)
+			(at 64.77 73.3964 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3413,7 +3508,7 @@
 	)
 	(global_label "Shift Reg Latch"
 		(shape input)
-		(at 41.91 91.44 90)
+		(at 111.76 91.44 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3423,7 +3518,7 @@
 		)
 		(uuid "21591948-1e9a-40e6-974a-dbd28dfafd2a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 41.91 73.4569 90)
+			(at 111.76 73.4569 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3457,7 +3552,7 @@
 	)
 	(global_label "SW6"
 		(shape input)
-		(at 92.71 114.3 270)
+		(at 60.96 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3467,7 +3562,7 @@
 		)
 		(uuid "2c5339e0-bbc1-40d2-9d73-9dfffd8a2ca1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 92.71 121.1556 90)
+			(at 60.96 121.1556 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3477,7 +3572,7 @@
 			)
 		)
 	)
-	(global_label "Modular Input 1"
+	(global_label "Modular Input 4"
 		(shape input)
 		(at 245.11 146.05 180)
 		(fields_autoplaced yes)
@@ -3501,7 +3596,7 @@
 	)
 	(global_label "SW3"
 		(shape input)
-		(at 104.14 114.3 270)
+		(at 49.53 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3511,7 +3606,7 @@
 		)
 		(uuid "4f109050-5361-4a59-8f1a-2de53a14b14f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 104.14 121.1556 90)
+			(at 49.53 121.1556 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3523,7 +3618,7 @@
 	)
 	(global_label "SW11"
 		(shape input)
-		(at 60.96 114.3 270)
+		(at 92.71 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3533,7 +3628,7 @@
 		)
 		(uuid "50714902-cf3f-4ba0-b4c0-33d1ee115e24")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 60.96 122.3651 90)
+			(at 92.71 122.3651 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3567,7 +3662,7 @@
 	)
 	(global_label "SW4"
 		(shape input)
-		(at 100.33 114.3 270)
+		(at 53.34 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3577,7 +3672,7 @@
 		)
 		(uuid "5554b72e-beb2-463e-8e47-fc3f6bd4f139")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 100.33 121.1556 90)
+			(at 53.34 121.1556 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3633,7 +3728,7 @@
 	)
 	(global_label "SW12"
 		(shape input)
-		(at 57.15 114.3 270)
+		(at 96.52 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3643,7 +3738,7 @@
 		)
 		(uuid "5c903fe8-077f-4692-9ced-be0b21d6bdd6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 57.15 122.3651 90)
+			(at 96.52 122.3651 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3655,7 +3750,7 @@
 	)
 	(global_label "Modular Input 1"
 		(shape input)
-		(at 41.91 114.3 270)
+		(at 111.76 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3665,7 +3760,7 @@
 		)
 		(uuid "6a6ba05c-058b-4527-a590-98a18506da54")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 41.91 132.7062 90)
+			(at 111.76 132.7062 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3809,7 +3904,7 @@
 	)
 	(global_label "Modular Input 4"
 		(shape input)
-		(at 53.34 114.3 270)
+		(at 100.33 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3819,7 +3914,7 @@
 		)
 		(uuid "90519729-102a-4b09-9fff-51adafbe5365")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 53.34 132.7062 90)
+			(at 100.33 132.7062 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3851,7 +3946,7 @@
 			)
 		)
 	)
-	(global_label "Modular Input 2"
+	(global_label "Modular Input 3"
 		(shape input)
 		(at 245.11 148.59 180)
 		(fields_autoplaced yes)
@@ -3873,24 +3968,24 @@
 			)
 		)
 	)
-	(global_label "Shift Data In"
-		(shape input)
-		(at 34.29 102.87 180)
+	(global_label "Shift Data Out"
+		(shape output)
+		(at 119.38 102.87 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "9c030544-9a4b-4d3b-bb89-25e8a47eb364")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 18.9074 102.87 0)
+			(at 136.214 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -3919,7 +4014,7 @@
 	)
 	(global_label "Modular Input 3"
 		(shape input)
-		(at 49.53 114.3 270)
+		(at 104.14 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3929,7 +4024,7 @@
 		)
 		(uuid "a32e7827-21d5-41a2-bae7-5b1561e92467")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 49.53 132.7062 90)
+			(at 104.14 132.7062 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3939,7 +4034,7 @@
 			)
 		)
 	)
-	(global_label "Modular Input 3"
+	(global_label "Modular Input 2"
 		(shape input)
 		(at 245.11 151.13 180)
 		(fields_autoplaced yes)
@@ -3963,7 +4058,7 @@
 	)
 	(global_label "SW10"
 		(shape input)
-		(at 64.77 114.3 270)
+		(at 88.9 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3973,7 +4068,7 @@
 		)
 		(uuid "a972602e-29a2-4c1d-83ec-d7073258527c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 64.77 122.3651 90)
+			(at 88.9 122.3651 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3983,24 +4078,24 @@
 			)
 		)
 	)
-	(global_label "Shift Data Out"
-		(shape output)
-		(at 119.38 102.87 0)
+	(global_label "Shift Data In"
+		(shape input)
+		(at 34.29 102.87 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "b0832bc9-3abb-484c-b7f2-e7ed84ffdde3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 136.214 102.87 0)
+			(at 18.9074 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -4029,7 +4124,7 @@
 	)
 	(global_label "SW7"
 		(shape input)
-		(at 88.9 114.3 270)
+		(at 64.77 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4039,7 +4134,7 @@
 		)
 		(uuid "b6b02ea5-c2d6-493a-b3a8-879c48b5809c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 88.9 121.1556 90)
+			(at 64.77 121.1556 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4073,7 +4168,7 @@
 	)
 	(global_label "SW2"
 		(shape input)
-		(at 107.95 114.3 270)
+		(at 45.72 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4083,7 +4178,7 @@
 		)
 		(uuid "c27752bd-72d1-4eef-b94e-2dadf9d144cf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 107.95 121.1556 90)
+			(at 45.72 121.1556 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4117,7 +4212,7 @@
 	)
 	(global_label "Shift Reg Latch"
 		(shape input)
-		(at 85.09 91.44 90)
+		(at 68.58 91.44 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4127,7 +4222,7 @@
 		)
 		(uuid "cf420602-8c98-4028-86bf-8399d515df79")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 85.09 73.4569 90)
+			(at 68.58 73.4569 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4227,7 +4322,7 @@
 	)
 	(global_label "Shift Reg Clock"
 		(shape input)
-		(at 45.72 91.44 90)
+		(at 107.95 91.44 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4237,7 +4332,7 @@
 		)
 		(uuid "e2487486-ed02-4e3a-99c0-0572d2ffb3d6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 45.72 73.3964 90)
+			(at 107.95 73.3964 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4249,7 +4344,7 @@
 	)
 	(global_label "Modular Input 2"
 		(shape input)
-		(at 45.72 114.3 270)
+		(at 107.95 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4259,7 +4354,7 @@
 		)
 		(uuid "e261c477-43b8-44bb-8262-4ac55e71d96d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 45.72 132.7062 90)
+			(at 107.95 132.7062 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4271,7 +4366,7 @@
 	)
 	(global_label "SW9"
 		(shape input)
-		(at 68.58 114.3 270)
+		(at 85.09 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4281,7 +4376,7 @@
 		)
 		(uuid "e3b3c170-c69d-43f2-8839-f7f015bbd315")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 68.58 121.1556 90)
+			(at 85.09 121.1556 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4315,7 +4410,7 @@
 	)
 	(global_label "SW5"
 		(shape input)
-		(at 96.52 114.3 270)
+		(at 57.15 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4325,7 +4420,7 @@
 		)
 		(uuid "e6ad3ef0-c3c3-4629-8d7e-2a3225b3be8e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 96.52 121.1556 90)
+			(at 57.15 121.1556 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4337,7 +4432,7 @@
 	)
 	(global_label "SW8"
 		(shape input)
-		(at 85.09 114.3 270)
+		(at 68.58 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4347,7 +4442,7 @@
 		)
 		(uuid "eba2c915-98ff-4659-8dc0-3263d28b5b60")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 85.09 121.1556 90)
+			(at 68.58 121.1556 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4359,7 +4454,7 @@
 	)
 	(global_label "SW1"
 		(shape input)
-		(at 111.76 114.3 270)
+		(at 41.91 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4369,7 +4464,7 @@
 		)
 		(uuid "fa5829d4-1a4a-443a-98d5-8d094d3cfebb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 111.76 121.1556 90)
+			(at 41.91 121.1556 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4398,6 +4493,70 @@
 				)
 				(justify right)
 				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 160.02 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0224a1ed-3713-42ed-8550-bb918b4199ab")
+		(property "Reference" "H1"
+			(at 162.56 77.4699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 162.56 80.0099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 160.02 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 160.02 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 160.02 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/6bfef156-f9d7-4fb0-b249-eab7f7e87191"
+					(reference "H1")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -4607,7 +4766,8 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 97.79 91.44 180)
+		(at 55.88 91.44 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4615,7 +4775,7 @@
 		(dnp no)
 		(uuid "0c75f8b8-1918-4c03-a535-61e45c8f70c9")
 		(property "Reference" "#PWR07"
-			(at 97.79 85.09 0)
+			(at 55.88 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4624,7 +4784,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 97.79 87.376 0)
+			(at 55.88 87.376 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4632,7 +4792,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 97.79 91.44 0)
+			(at 55.88 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4641,7 +4801,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 97.79 91.44 0)
+			(at 55.88 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4650,7 +4810,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 97.79 91.44 0)
+			(at 55.88 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4817,7 +4977,8 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 60.96 91.44 0)
+		(at 92.71 91.44 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4825,7 +4986,7 @@
 		(dnp no)
 		(uuid "125b179b-c30a-479d-877d-7b2b0cbca190")
 		(property "Reference" "#PWR05"
-			(at 60.96 95.25 0)
+			(at 92.71 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4834,7 +4995,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 60.96 87.63 0)
+			(at 92.71 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4842,7 +5003,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 60.96 91.44 0)
+			(at 92.71 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4851,7 +5012,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 60.96 91.44 0)
+			(at 92.71 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4860,7 +5021,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 60.96 91.44 0)
+			(at 92.71 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5626,6 +5787,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 160.02 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2efe0fcd-d1e1-4bec-bca4-edabf724d810")
+		(property "Reference" "H3"
+			(at 162.56 85.0899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 162.56 87.6299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 160.02 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 160.02 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 160.02 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "synthboard"
+				(path "/6bfef156-f9d7-4fb0-b249-eab7f7e87191"
+					(reference "H3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x07_Pin")
 		(at 251.46 83.82 180)
 		(unit 1)
@@ -5924,7 +6149,8 @@
 	)
 	(symbol
 		(lib_id "74xx:74HC165")
-		(at 54.61 102.87 0)
+		(at 99.06 102.87 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5932,7 +6158,7 @@
 		(dnp no)
 		(uuid "41ee2660-3340-4178-a5e1-becc0cc7397a")
 		(property "Reference" "U2"
-			(at 73.406 96.774 0)
+			(at 80.264 96.774 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5940,7 +6166,7 @@
 			)
 		)
 		(property "Value" "74HC165"
-			(at 55.118 103.124 0)
+			(at 98.552 103.124 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5948,7 +6174,7 @@
 			)
 		)
 		(property "Footprint" "74HC165D_653:SOIC127P600X175-16N"
-			(at 54.61 102.87 0)
+			(at 99.06 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5957,7 +6183,7 @@
 			)
 		)
 		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/74HC_HCT165.pdf"
-			(at 54.61 102.87 0)
+			(at 99.06 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5966,7 +6192,7 @@
 			)
 		)
 		(property "Description" "Shift Register, 8-bit, Parallel Load"
-			(at 54.61 102.87 0)
+			(at 99.06 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6308,6 +6534,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 179.07 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "554ab89a-2059-4374-a2ed-28b77ae77023")
+		(property "Reference" "H2"
+			(at 181.61 77.4699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 181.61 80.0099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 179.07 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 179.07 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 179.07 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "synthboard"
+				(path "/6bfef156-f9d7-4fb0-b249-eab7f7e87191"
+					(reference "H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "LED:WS2812B")
 		(at 50.8 38.1 0)
 		(unit 1)
@@ -6521,7 +6811,8 @@
 	)
 	(symbol
 		(lib_id "74xx:74HC165")
-		(at 97.79 102.87 0)
+		(at 55.88 102.87 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6529,7 +6820,7 @@
 		(dnp no)
 		(uuid "59c1c606-aa00-4a83-8811-f7dbf7caeeca")
 		(property "Reference" "U1"
-			(at 116.586 96.52 0)
+			(at 37.084 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6537,7 +6828,7 @@
 			)
 		)
 		(property "Value" "74HC165"
-			(at 98.298 102.87 0)
+			(at 55.372 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6545,7 +6836,7 @@
 			)
 		)
 		(property "Footprint" "74HC165D_653:SOIC127P600X175-16N"
-			(at 97.79 102.87 0)
+			(at 55.88 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6554,7 +6845,7 @@
 			)
 		)
 		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/74HC_HCT165.pdf"
-			(at 97.79 102.87 0)
+			(at 55.88 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6563,7 +6854,7 @@
 			)
 		)
 		(property "Description" "Shift Register, 8-bit, Parallel Load"
-			(at 97.79 102.87 0)
+			(at 55.88 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7645,7 +7936,8 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 54.61 91.44 180)
+		(at 99.06 91.44 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7653,7 +7945,7 @@
 		(dnp no)
 		(uuid "85164678-51fd-4c8c-83d3-21ba0a96233a")
 		(property "Reference" "#PWR033"
-			(at 54.61 85.09 0)
+			(at 99.06 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7662,7 +7954,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 54.61 87.376 0)
+			(at 99.06 87.376 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7670,7 +7962,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 54.61 91.44 0)
+			(at 99.06 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7679,7 +7971,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 54.61 91.44 0)
+			(at 99.06 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7688,7 +7980,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 54.61 91.44 0)
+			(at 99.06 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8133,6 +8425,70 @@
 			(project "synthboard"
 				(path "/6bfef156-f9d7-4fb0-b249-eab7f7e87191"
 					(reference "D11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 179.07 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9ad19a13-3afd-4bc5-be8a-af9b6925fd26")
+		(property "Reference" "H4"
+			(at 181.61 85.0899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 181.61 87.6299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 179.07 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 179.07 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 179.07 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "synthboard"
+				(path "/6bfef156-f9d7-4fb0-b249-eab7f7e87191"
+					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -9638,7 +9994,8 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 104.14 91.44 0)
+		(at 49.53 91.44 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9646,7 +10003,7 @@
 		(dnp no)
 		(uuid "dafe0ac1-ed90-40b7-9b48-925d60b2f413")
 		(property "Reference" "#PWR06"
-			(at 104.14 95.25 0)
+			(at 49.53 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9655,7 +10012,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 104.14 87.63 0)
+			(at 49.53 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9663,7 +10020,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 104.14 91.44 0)
+			(at 49.53 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9672,7 +10029,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 104.14 91.44 0)
+			(at 49.53 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9681,7 +10038,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 104.14 91.44 0)
+			(at 49.53 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
