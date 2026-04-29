@@ -1,5 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "74HC165D_653")(type "KiCad")(uri "${KIPRJMOD}/Local Libraries/74HC165D_653")(options "")(descr ""))
-  (lib (name "WS2812B")(type "KiCad")(uri "${KIPRJMOD}/Local Libraries/WS2812B")(options "")(descr ""))
-)
