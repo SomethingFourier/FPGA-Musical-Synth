@@ -5,13 +5,13 @@ Video demonstration of sine wave synth: https://youtu.be/_ejQGvuSiI8
 
 ### 29 April 2026: Key Input PCB design complete!
 The PCB for the input module has been completed. Each module represents 1 octave (12 keys). We decided to use shift registers to read key input in parallel and send out that data to the FPGA as serial (PISO). This provides a few advantages over other methods of key input:
-1. We use a fixed # of pins on the FPGA regardless of the # of keys or modules.
-2. Because we are using shift registers, each module can be designed to connect to one another, increasing the number of available octaves.
-3. PCB order quantity minimums do not produce useless boards because each board represents one octave and you can connect multiple boards together. Thus, if I only wanted to order the minimum, which is often five, I would still be able to use all of the boards and get five ocatves (assuming there are not faults with the board).
+1. **Fixed # of FPGA Pins**: We use a fixed number of pins on the FPGA for key input, regardless of how many keys we have.
+2. **Daisy Chaining**: Shift registers can be daisy-chained to create a long line of parallel input with just one serial output. To take advantage of this, we designed the modules to daisy chain together, with each additional module in the line giving the user an additional octave.
+3. **No Wasted PCBs**: PCB minimum order quantities (often 5) do not produce unused boards because these modules are made to be daisy-chained. If I have to order a minimum of 5 boards, and that's all I want to order, I get 5 octaves for my synth.
 
 ![top of the key input PCB](kicad/rev_1/front.png)
 
-> The order for this PCB will be placed within a week or two; I am waiting to order it alongside PCBs for a class I'm currently taking. This PCB does not have a place for the pico2-ice development board to plug in to. Making a dedicated PCB for the FPGA is a low priority at the moment.
+> The order for this PCB will be placed within a week or two; I am waiting to order it alongside PCBs for a class I'm currently taking. Because this PCB was designed to daisy-chain duplicates together, it was not designed with a place for an FPGA or the development board; that will be a separate module.
 
 #### Current limitations:
 1. FPGA still only supports one key press at a time.
