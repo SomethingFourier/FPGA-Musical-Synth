@@ -7707,7 +7707,7 @@
 		(property "Reference" "SW2"
 			(at -8.015 -2.778 0)
 			(layer "F.SilkS")
-			(uuid "17cf03c8-ef48-4e4a-82dd-809b5288763e")
+			(uuid "aa2129e5-f0fa-4ba8-93e5-7a3ba0349b7a")
 			(effects
 				(font
 					(size 1 1)
@@ -7718,7 +7718,7 @@
 		(property "Value" "SW_Push"
 			(at -2.54 12.954 0)
 			(layer "F.Fab")
-			(uuid "049c7f40-5dd6-48bd-8016-deb5b192e1e4")
+			(uuid "e9cce424-f52b-4c38-869f-4bfae6953931")
 			(effects
 				(font
 					(size 1 1)
@@ -7731,7 +7731,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f978ff42-9b7e-47c9-b563-958d991d591e")
+			(uuid "07c63f7d-6271-4ddd-9f2c-571c9b4f1226")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7744,7 +7744,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "8f3c011d-76be-4c45-8ff8-6499c06341d0")
+			(uuid "93a858cd-a4fb-49eb-9c61-dd316020fc0b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11070,7 +11070,7 @@
 			(at 4.385 -2.27 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "49786a11-314e-4f51-b713-e4f562985de0")
+			(uuid "36690cd5-7379-4887-abfd-1520b71b9f75")
 			(effects
 				(font
 					(size 1 1)
@@ -11081,7 +11081,7 @@
 		(property "Value" "Connect to Lower Module"
 			(at -2.845 -2.7 0)
 			(layer "B.SilkS")
-			(uuid "dae08017-56a5-43a8-9371-ad76e5318d95")
+			(uuid "10291413-ede3-43ff-b2a4-19f7645aa224")
 			(effects
 				(font
 					(size 1 1)
@@ -11094,7 +11094,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "25357407-1bd1-495c-8b5e-2c1a8eecdd45")
+			(uuid "d722e8db-4709-42d6-aea2-b5868b2dc2d0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11105,7 +11105,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7cfea79b-b408-4dd4-8002-133f4c284748")
+			(uuid "f10d111e-e79d-4059-b4fa-047883635aee")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14326,6 +14326,16 @@
 		)
 	)
 	(gr_line
+		(start 41.6 128.378403)
+		(end 41.6 112.96)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "68b55787-d629-43d5-8bf1-6c6bec01137a")
+	)
+	(gr_line
 		(start 39.37 150.15)
 		(end 39.37 103.7)
 		(stroke
@@ -14438,7 +14448,7 @@
 			)
 		)
 	)
-	(gr_text "Stackable Synth Key Input Module"
+	(gr_text "Synth Key Input Module"
 		(at 124.28 107.5 0)
 		(layer "F.SilkS")
 		(uuid "de828a59-18f6-4887-8c38-360ec63b6ed7")
@@ -14452,7 +14462,7 @@
 		)
 	)
 	(gr_text "Rev. 1"
-		(at 156.175 110.22 0)
+		(at 141.175 110.22 0)
 		(layer "F.SilkS")
 		(uuid "bd0aa6bf-29c2-4bb9-b2a2-4601e8efdfa8")
 		(effects
@@ -14622,7 +14632,7 @@
 		)
 	)
 	(gr_text "Rev. 1"
-		(at 132.005 110.22 -0)
+		(at 145.005 110.22 0)
 		(layer "B.SilkS")
 		(uuid "25ac8516-b070-4751-8f57-8775feeb473a")
 		(effects
@@ -14634,8 +14644,8 @@
 			(justify left bottom mirror)
 		)
 	)
-	(gr_text "Stackable Synth Key Input Module"
-		(at 164.145 107.63 -0)
+	(gr_text "Synth Key Input Module"
+		(at 164.145 107.63 0)
 		(layer "B.SilkS")
 		(uuid "4b82d70a-b98b-49c0-aff6-21e658a40fd9")
 		(effects
@@ -14645,6 +14655,158 @@
 				(bold yes)
 			)
 			(justify left bottom mirror)
+		)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "Dwgs.User")
+		(uuid "39ebd7c1-29eb-427a-a7ad-1b156b48b5e2")
+		(pts
+			(xy 175.445 127.48) (xy 172.72 127.48)
+		)
+		(height 2.48)
+		(orientation 0)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 0)
+			(precision 4)
+			(suppress_zeroes yes)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(arrow_direction outward)
+			(extension_height 0.58642)
+			(extension_offset 0.5)
+			(keep_text_aligned yes)
+		)
+		(gr_text "2.725"
+			(at 174.0825 128.81 0)
+			(layer "Dwgs.User")
+			(uuid "39ebd7c1-29eb-427a-a7ad-1b156b48b5e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "Dwgs.User")
+		(uuid "3fc9f8d5-4206-4b25-8a9f-eacfcb3eba6c")
+		(pts
+			(xy 35.595 123.24) (xy 39.37 123.24)
+		)
+		(height 0)
+		(orientation 0)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 0)
+			(precision 4)
+			(suppress_zeroes yes)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(arrow_direction outward)
+			(extension_height 0.58642)
+			(extension_offset 0.5)
+			(keep_text_aligned yes)
+		)
+		(gr_text "3.775"
+			(at 37.4825 122.09 0)
+			(layer "Dwgs.User")
+			(uuid "3fc9f8d5-4206-4b25-8a9f-eacfcb3eba6c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "Dwgs.User")
+		(uuid "5a41f8b5-0462-4221-8c7e-92352f25832e")
+		(pts
+			(xy 35.595 125.78) (xy 41.6 125.78)
+		)
+		(height 1.145)
+		(orientation 0)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 0)
+			(precision 4)
+			(suppress_zeroes yes)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(arrow_direction outward)
+			(extension_height 0.58642)
+			(extension_offset 0.5)
+			(keep_text_aligned yes)
+		)
+		(gr_text "6.005"
+			(at 38.5975 125.775 0)
+			(layer "Dwgs.User")
+			(uuid "5a41f8b5-0462-4221-8c7e-92352f25832e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "Dwgs.User")
+		(uuid "b67997b1-4171-42b0-9b4e-ae93b2079179")
+		(pts
+			(xy 41.6 120.669202) (xy 39.37 120.7)
+		)
+		(height -1.039202)
+		(orientation 0)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 0)
+			(precision 4)
+			(suppress_zeroes yes)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(arrow_direction outward)
+			(extension_height 0.58642)
+			(extension_offset 0.5)
+			(keep_text_aligned yes)
+		)
+		(gr_text "2.23"
+			(at 40.485 118.48 0)
+			(layer "Dwgs.User")
+			(uuid "b67997b1-4171-42b0-9b4e-ae93b2079179")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
 		)
 	)
 	(segment
